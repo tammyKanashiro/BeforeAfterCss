@@ -1,0 +1,124 @@
+/*
+$clr-red: #c31;
+$clr-black: rgba(black, 1);
+$clr-gray: rgba(black, .7);
+*/
+
+body {
+    font-size: 1rem;
+    text-align: center;
+    line-height: 1.4;
+    color: rgba(0, 0, 0, .7);
+}
+
+h1, h2, h3, h4, h5 {
+    text-transform: uppercase;
+    line-height: .9;
+    color: #c31;
+}
+
+h2 {
+    margin-top: 1em;
+    margin-bottom: 0;
+}
+  
+p {
+    margin-top: .25em;
+}
+
+a {
+    color: #c31;
+}
+
+a[data-tool-tip] {
+    position: relative;
+}
+
+a[data-tool-tip]::after {
+    content: attr(data-tool-tip);
+    display: block;
+    position: absolute;
+    background-color: rgb(0, 0, 0, .7);
+    white-space: nowrap;
+    padding: 1em 3em;
+    color: white;
+    border-radius: 5px;
+    font-size: .8em;
+    bottom: 0;
+    left: 0;
+    transform: scale(0);
+    transition:  
+        transform ease-out 150ms,
+        bottom ease-out 150ms;
+}
+
+a[data-tool-tip]:hover::after {
+    transform: scale(1);
+    bottom: 100%;
+}
+
+.intro {
+    font-size: 3rem;
+}
+
+blockquote {
+    font-size: 1.5rem;
+    color: rgba(black, 1);
+}
+
+blockquote::before {
+    content: open-quote;
+    font-size: 2em;
+    color: #c31;
+}
+
+blockquote::after {
+    content: close-quote;
+    font-size: 2em;
+    color: #c31;
+}
+
+.counters {
+    background-color: lightgray;
+    text-align: left;
+    padding: 5em 8em;
+    margin-top: 7em;
+
+    counter-reset: counter-name;
+}
+
+.section {
+    position: relative;
+}
+
+.section::before {
+    counter-increment: counter-name;
+    content: counter(counter-name);
+    position: absolute;
+    left: -2.5em;
+    top: -.5em;
+    background: white;
+    width: 2em;
+    height: 2em;
+    border: 3px solid rgba(0, 0, 0, .7);
+    border-radius: 50%;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, .7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*.counters {
+    counter-reset: ordered-list;
+}*/
+
+.counters ol {
+    counter-reset: ordered-list;
+    list-style: none;
+}
+
+.counters li::before {
+    counter-increment: ordered-list;
+    content: 'Item ' counter(ordered-list) ': ';
+}
