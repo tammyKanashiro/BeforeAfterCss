@@ -109,9 +109,7 @@ blockquote::after {
     align-items: center;
 }
 
-/*.counters {
-    counter-reset: ordered-list;
-}*/
+
 
 .counters ol {
     counter-reset: ordered-list;
